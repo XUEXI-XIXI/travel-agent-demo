@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f7f7f3" />
+  <title>漫游计划 · 你的旅行 Agent</title>
+  <style>
+    :root{--ink:#20271f;--muted:#758073;--paper:#f7f7f3;--card:#fff;--line:#e7e9e1;--green:#315f43;--lime:#d7eb85;--orange:#e78855;--shadow:0 16px 50px #2635280c}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}button,input,select{font:inherit}button{cursor:pointer}.shell{max-width:1280px;margin:auto;padding:24px 34px 56px}.topbar{display:flex;align-items:center;justify-content:space-between;padding:5px 0 22px}.brand{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:750;letter-spacing:-.03em}.brand-icon{width:34px;height:34px;border-radius:12px;background:var(--green);display:grid;place-items:center;color:#fff;font-size:18px}.toplinks{display:flex;gap:25px;color:var(--muted);font-size:13px}.status{background:#e9f0e6;color:var(--green);border-radius:99px;padding:7px 12px;font-size:12px;font-weight:650}.hero{padding:39px 0 28px;display:flex;justify-content:space-between;align-items:end}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.16em;font-weight:750;color:var(--green)}h1{font-size:clamp(36px,5vw,59px);line-height:1.04;letter-spacing:-.06em;margin:13px 0 12px;font-weight:720}.hero p{color:var(--muted);margin:0;max-width:510px}.hero-stamp{width:105px;height:105px;border:1px solid #d8ddcf;border-radius:50%;display:grid;place-items:center;text-align:center;color:var(--green);font-size:12px;line-height:1.4;transform:rotate(8deg)}.hero-stamp b{font-size:24px;display:block}.layout{display:grid;grid-template-columns:350px minmax(0,1fr);gap:22px;align-items:start}.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}.form-panel{padding:23px;position:sticky;top:16px}.panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.panel-head h2{font-size:16px;margin:0}.step{font-size:11px;color:var(--muted)}label{display:block;font-size:12px;font-weight:650;margin:15px 0 7px}.field{width:100%;border:1px solid var(--line);background:#fcfcfa;padding:11px 12px;border-radius:10px;color:var(--ink);outline:0}.field:focus{border-color:#759879;box-shadow:0 0 0 3px #315f4312}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.chips{display:flex;flex-wrap:wrap;gap:7px}.chip{border:1px solid var(--line);background:#fff;border-radius:99px;padding:7px 10px;font-size:11px;color:#596257}.chip.active{background:#edf3e9;border-color:#b5c7b2;color:var(--green);font-weight:700}.primary{border:0;background:var(--green);color:white;border-radius:11px;padding:13px 16px;font-weight:700;width:100%;margin-top:19px;transition:transform .15s,background .15s}.primary:hover{background:#254b34;transform:translateY(-1px)}.privacy{font-size:10px;color:#929b8e;text-align:center;margin:10px 0 0}.right{min-width:0}.welcome{min-height:306px;padding:30px;overflow:hidden;position:relative;background:#e8eddf}.welcome:after{content:"";position:absolute;width:280px;height:280px;right:5%;top:30px;border-radius:50%;background:radial-gradient(circle at 40% 40%,#f4f6e9 0 17%,#d5dfc7 18% 46%,#b5c7ab 47% 48%,transparent 49%);opacity:.9}.welcome:before{content:"✳";position:absolute;right:18%;top:62px;font-size:140px;color:#fff9;z-index:1}.welcome-copy{max-width:410px;position:relative;z-index:2}.welcome h2{font-size:29px;line-height:1.2;letter-spacing:-.04em;margin:11px 0}.welcome p{color:#647063;max-width:365px;font-size:13px}.tiny-label{font-size:10px;letter-spacing:.15em;font-weight:750;color:var(--green)}.suggestions{display:flex;gap:8px;margin-top:19px}.suggestion{background:#ffffffa8;border:1px solid #ffffffb8;border-radius:99px;padding:8px 12px;color:var(--green);font-size:11px;font-weight:650}.result-head{display:flex;align-items:end;justify-content:space-between;margin:28px 2px 14px}.result-head h2{font-size:18px;margin:0}.result-head p{font-size:11px;color:var(--muted);margin:4px 0 0}.result-actions{display:flex;gap:8px}.ghost{border:1px solid var(--line);background:#fff;border-radius:9px;padding:8px 11px;font-size:11px;color:#596257}.summary{padding:17px 20px;display:flex;align-items:center;gap:22px;margin-bottom:13px}.destination{font-size:18px;font-weight:750}.summary-detail{font-size:11px;color:var(--muted);margin-top:3px}.summary-stat{margin-left:auto;text-align:right;font-size:10px;color:var(--muted)}.summary-stat strong{display:block;font-size:17px;color:var(--ink)}.day-list{display:grid;gap:12px}.day{overflow:hidden}.day-top{display:flex;align-items:center;gap:12px;padding:15px 18px;border-bottom:1px solid #eff0ec}.day-number{width:35px;height:35px;border-radius:12px;background:#edf2e8;color:var(--green);display:grid;place-items:center;font-size:11px;font-weight:800}.day-name{font-size:14px;font-weight:700}.day-date{font-size:10px;color:var(--muted)}.day-vibe{margin-left:auto;color:var(--green);background:#f1f4ed;border-radius:99px;padding:5px 9px;font-size:10px}.activities{padding:4px 18px 8px 65px}.activity{display:grid;grid-template-columns:44px 1fr auto;gap:9px;align-items:start;padding:11px 0;border-bottom:1px dashed #eceee8}.activity:last-child{border:0}.time{font-size:10px;color:#879183;padding-top:2px}.activity-title{font-weight:650;font-size:12px}.activity-desc{font-size:10px;color:var(--muted);margin-top:2px}.tag{font-size:9px;color:#65735e;background:#f3f5ef;padding:4px 7px;border-radius:6px;white-space:nowrap}.agent-note{padding:15px 17px;margin-top:13px;background:#f0f3e9;border:1px solid #e5e9db;border-radius:14px;font-size:11px;color:#52604d}.agent-note b{color:var(--green)}.empty{padding:35px;text-align:center;color:var(--muted);font-size:13px}.footer{display:flex;justify-content:space-between;padding:25px 3px 0;color:#90988c;font-size:10px}.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);opacity:0;background:#20271f;color:white;padding:10px 16px;border-radius:99px;font-size:12px;transition:.25s;pointer-events:none}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}@media(max-width:850px){.layout{grid-template-columns:1fr}.form-panel{position:static}.welcome{min-height:265px}.hero-stamp{width:82px;height:82px}.hero{align-items:center}}@media(max-width:520px){.shell{padding:14px 14px 35px}.toplinks{display:none}.hero{padding:28px 0 20px}.hero-stamp{display:none}.form-panel{padding:18px}.welcome{padding:23px 20px;min-height:290px}.welcome:after{right:-50px;top:115px;width:230px;height:230px}.welcome:before{right:12%;top:130px;font-size:105px}.summary{gap:10px;padding:15px}.summary-stat{font-size:9px}.activities{padding-left:15px;padding-right:15px}.activity{grid-template-columns:39px 1fr}.tag{display:none}.result-head{align-items:center}.result-actions .ghost{padding:7px 8px}}
+</style>
+<style>
+.research,.creator{padding:22px;margin-top:24px;scroll-margin-top:20px}.section-title{display:flex;justify-content:space-between;align-items:center;gap:15px}.section-title h2{font-size:19px;letter-spacing:-.03em;margin:7px 0 3px}.section-title p{font-size:11px;color:var(--muted);margin:0;max-width:660px}.section-icon{width:44px;height:44px;display:grid;place-items:center;border-radius:15px;background:#edf2e8;color:var(--green);font-size:25px}.notes-input{resize:vertical;min-height:190px;margin-top:18px;font-size:12px;line-height:1.7}.research-controls{display:flex;justify-content:space-between;align-items:center;gap:12px}.privacy-inline{font-size:10px;color:#899286}.analyze-btn{width:auto;margin:10px 0 0;padding:10px 15px}.research-output{margin-top:15px}.research-empty{background:#fafbf8;border:1px dashed var(--line);border-radius:12px}.research-summary{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.metric{background:#f3f5ef;border-radius:10px;padding:9px 12px;font-size:10px;color:#697465}.metric strong{font-size:16px;color:var(--ink);margin-right:4px}.risk-high{color:#a24f34;background:#fbefe9}.risk-medium{color:#856628;background:#f7f2e4}.research-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.insight-card{padding:14px;border:1px solid var(--line);border-radius:13px;background:#fff}.insight-card h3{font-size:12px;margin:0 0 10px}.claim{padding:9px 0;border-top:1px dashed #eceee8}.claim:first-of-type{border-top:0}.claim-text{font-size:11px;line-height:1.55}.claim-meta{display:flex;align-items:center;gap:7px;flex-wrap:wrap;color:#7f897b;font-size:9px;margin-top:5px}.risk-pill{border-radius:99px;padding:3px 7px;background:#f7f2e4;color:#856628}.risk-pill.high{background:#fbefe9;color:#a24f34}.risk-pill.low{background:#edf3e9;color:#315f43}.source-name{font-weight:700;color:#52604d}.check-list{display:grid;gap:8px}.check-row{display:flex;gap:8px;align-items:flex-start;font-size:11px;color:#525d50}.check-row input{accent-color:var(--green);margin:2px 0 0}.check-row.done span{text-decoration:line-through;color:#9aa295}.disclaimer{font-size:10px;color:#8b9387;margin-top:12px;padding:10px;background:#fafbf8;border-radius:9px}.pitfall-item{font-size:11px;padding:8px 0;border-top:1px dashed #eceee8}.pitfall-item:first-of-type{border-top:0}.pitfall-quote{color:#52604d;font-size:10px;margin-top:4px}.series-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}.series-card{padding:14px;border-radius:13px;background:#f8f9f5;border:1px solid var(--line)}.series-num{font-size:9px;color:var(--green);letter-spacing:.12em;font-weight:750}.series-card h3{font-size:13px;margin:7px 0 5px}.series-card p{font-size:10px;line-height:1.55;color:var(--muted);margin:0}.series-card .format{display:inline-block;margin-top:10px;font-size:9px;color:#687661;background:#eaf0e5;border-radius:6px;padding:4px 6px}
+/* Each route is a separate screen; the shared data stays in memory while navigation changes. */
+body[data-route="home"] .layout{grid-template-columns:1fr}body[data-route="home"] .form-panel,body[data-route="home"] [data-route-screen]:not([data-route-screen="home"]){display:none!important}body[data-route="home"] [data-route-screen="home"]{display:block}.home-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-top:15px}.home-step{border:1px solid var(--line);background:#fff;border-radius:15px;padding:16px;text-align:left;min-height:130px;color:var(--ink);transition:.15s}.home-step:hover{transform:translateY(-2px);border-color:#b5c7b2;box-shadow:var(--shadow)}.home-step b{display:block;color:var(--green);font-size:12px;margin:8px 0 5px}.home-step span{font-size:10px;color:var(--muted);line-height:1.5;display:block}.home-step em{font-style:normal;font-size:19px}.welcome{margin-top:0}body[data-route="research"] .layout,body[data-route="pitfalls"] .layout,body[data-route="creator"] .layout{grid-template-columns:1fr}body[data-route="research"] .form-panel,body[data-route="pitfalls"] .form-panel,body[data-route="creator"] .form-panel,body[data-route="research"] [data-route-screen]:not([data-route-screen="research"]),body[data-route="pitfalls"] [data-route-screen]:not([data-route-screen="pitfalls"]),body[data-route="creator"] [data-route-screen]:not([data-route-screen="creator"]){display:none!important}body[data-route="research"] [data-route-screen="research"],body[data-route="pitfalls"] [data-route-screen="pitfalls"],body[data-route="creator"] [data-route-screen="creator"]{display:block}body[data-route="plan"] .layout{grid-template-columns:330px minmax(0,1fr)}body[data-route="plan"] [data-route-screen]:not([data-route-screen="plan"]){display:none!important}body[data-route="plan"] [data-route-screen="plan"]{display:block}body[data-route="plan"] .form-panel{position:static}body[data-route="plan"] .right{display:contents}.toplinks a{padding:8px 10px;border-radius:9px}.toplinks a:hover,.toplinks a.active{color:var(--green)!important;background:#edf3e9}.page-kicker{display:flex;justify-content:space-between;align-items:center;margin:2px 0 18px}.page-kicker h1{font-size:30px;margin:5px 0 0;letter-spacing:-.04em}.page-kicker p{font-size:12px;color:var(--muted);margin:0}.back-home{border:1px solid var(--line);background:#fff;border-radius:9px;padding:8px 12px;font-size:11px;color:var(--green)}
+/* Visual refresh: warm editorial canvas with a restrained Xiaohongshu coral accent. */
+:root{--ink:#33292a;--muted:#8b7d7d;--paper:#fff9f7;--card:#fff;--line:#f0e4e1;--green:#e45b68;--lime:#ffe8e6;--orange:#ed9c74;--shadow:0 10px 32px #7d4a4610}body{background:var(--paper);color:var(--ink)}.shell{max-width:1320px;padding-top:18px}.topbar{padding:4px 0 17px;border-bottom:1px solid #f2e9e6}.brand{cursor:pointer}.brand-icon{background:#e95563;border-radius:12px;box-shadow:0 5px 12px #e9556325}.toplinks{gap:8px}.toplinks a{font-size:12px;font-weight:600;padding:8px 12px}.toplinks a:hover,.toplinks a.active{background:#fff0ef;color:#d84c5a!important}.status{background:#fff0ef;color:#cb4f59;border:1px solid #f6dedd}.hero{margin:19px 0 20px;padding:27px 32px;border:1px solid #f7e7e3;border-radius:22px;background:linear-gradient(112deg,#fff0ed 0%,#fff7f0 59%,#fff1e9 100%);align-items:center;min-height:155px}.hero .eyebrow{font-size:11px;letter-spacing:.08em;color:#d65360}.hero h1{font-size:clamp(31px,4vw,44px);line-height:1.12;letter-spacing:-.055em;margin:8px 0}.hero p{font-size:12px;color:#796b6b;max-width:620px}.hero-stamp{width:83px;height:83px;border-color:#f3cfca;color:#d65360;background:#ffffff8c;font-size:9px}.hero-stamp b{font-size:20px}.layout{gap:18px}.form-panel{border-radius:18px;border-color:#f1e5e2;padding:21px;box-shadow:0 8px 28px #7d4a460b}.panel-head h2{font-size:17px}.step{background:#fff2ef;padding:5px 8px;border-radius:99px;color:#cb5962}.field{border-color:#eee2df;background:#fffdfc;border-radius:11px;padding:11px 12px}.field:focus{border-color:#e78d94;box-shadow:0 0 0 3px #e5576115}.chip{border-color:#efe4e1;color:#7f6c6e;background:#fffdfc}.chip.active{background:#fff0ef;border-color:#f4c4c5;color:#cb4f59}.primary{background:#e65362;border-radius:11px;box-shadow:0 6px 14px #e653621d}.primary:hover{background:#d94757}.right{min-width:0}.result-head{margin:7px 2px 13px;align-items:center}.result-head h2{font-size:20px;letter-spacing:-.025em}.result-head p{color:#948586;font-size:11px}.ghost{border-color:#f0e3e0;color:#725e60;border-radius:9px;background:#fff}.ghost:hover{background:#fff2f0;color:#c74958}.summary,.day{border-radius:16px;border-color:#f0e5e2;box-shadow:0 5px 18px #7d4a4609}.summary{padding:15px 17px}.destination{font-size:16px}.day-top{border-color:#f5eeeb}.day-number{background:#fff0ef;color:#d14c59}.day-vibe{background:#fff3ef;color:#c96856}.activities{padding-bottom:7px}.agent-note{background:#fff4f1;border-color:#f7e5df;color:#796566;border-radius:12px}.agent-note b{color:#c84d59}.research,.creator{border-radius:18px;border-color:#f0e5e2;box-shadow:0 8px 28px #7d4a4609}.page-kicker h1{color:#322627}.tiny-label{color:#d65360}.section-icon{background:#fff0ef;color:#d65360}.back-home{color:#ce4f5c}.next-step{background:#fff4f1;border-color:#f5e4df;color:#826e6e}.risk-high{color:#aa4b46;background:#fff0ed}.risk-medium{color:#987338;background:#fff6e9}.insight-card,.series-card{border-color:#f0e5e2;border-radius:14px}.series-card{background:#fff8f6}.day-list{gap:11px}.footer{border-top:1px solid #f2e9e6;margin-top:28px;padding-top:16px}
+/* The planner is the landing screen; supporting tools stay on their own screens. */
+body[data-route="home"] .layout{grid-template-columns:355px minmax(0,1fr)}body[data-route="home"] .form-panel{display:block!important;position:sticky;top:14px}body[data-route="home"] [data-route-screen="home"]{display:block}body[data-route="home"] [data-route-screen]:not([data-route-screen="home"]){display:none!important}body[data-route="home"] .right{display:contents}body[data-route="home"] .hero{display:flex}body[data-route="research"] .layout,body[data-route="pitfalls"] .layout,body[data-route="creator"] .layout{grid-template-columns:minmax(0,1fr)}body[data-route="research"] .right,body[data-route="pitfalls"] .right,body[data-route="creator"] .right{display:contents}.toplinks a.active{background:#fff0ef;color:#d84c5a!important}
+.area-line{font-size:10px;color:#aa7777;margin-top:2px}.day-content{padding:3px 18px 17px 65px}.timeline-label{display:flex;align-items:center;gap:7px;padding:13px 0 6px;font-size:10px;color:#a46e72;font-weight:700;letter-spacing:.06em}.timeline-label:after{content:"";height:1px;background:#f3e6e3;flex:1}.travel-note{font-size:10px;color:#9b8788;margin:3px 0 6px 53px}.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:13px}.choice-box{border:1px solid #f1e5e2;border-radius:11px;padding:10px;background:#fffaf8}.choice-box h4{font-size:11px;margin:0 0 5px;color:#4a3537}.choice-row{display:flex;justify-content:space-between;gap:8px;border-top:1px dashed #f0e6e2;padding:7px 0 0;margin-top:7px;font-size:10px}.choice-row:first-of-type{border-top:0;padding-top:0;margin-top:0}.choice-level{color:#d0505d;background:#fff0ef;border-radius:5px;padding:2px 5px;white-space:nowrap}.choice-name{color:#645153;line-height:1.4}.choice-price{color:#9e898a;white-space:nowrap}.budget-breakdown{display:flex;gap:6px;justify-content:flex-end;flex-wrap:wrap;margin-top:5px}.budget-breakdown span{font-size:9px;color:#9a8587;background:#fff4f1;padding:3px 5px;border-radius:5px}@media(max-width:600px){.day-content{padding-left:15px;padding-right:15px}.choices{grid-template-columns:1fr}.travel-note{margin-left:48px}.choice-row{align-items:flex-start}.summary-stat{min-width:90px}}
+.area-line{font-size:10px;color:#aa7777;margin-top:2px}.day-content{padding:3px 18px 17px 65px}.day-content .activities{padding:4px 0 0}.timeline-label{display:flex;align-items:center;gap:7px;padding:13px 0 6px;font-size:10px;color:#a46e72;font-weight:700;letter-spacing:.06em}.timeline-label:after{content:"";height:1px;background:#f3e6e3;flex:1}.travel-note{font-size:10px;color:#9b8788;margin:3px 0 6px 53px}.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:13px}.choice-box{border:1px solid #f1e5e2;border-radius:11px;padding:10px;background:#fffaf8}.choice-box h4{font-size:11px;margin:0 0 5px;color:#4a3537}.choice-row{display:flex;justify-content:space-between;gap:8px;border-top:1px dashed #f0e6e2;padding:7px 0 0;margin-top:7px;font-size:10px}.choice-row:first-of-type{border-top:0;padding-top:0;margin-top:0}.choice-level{color:#d0505d;background:#fff0ef;border-radius:5px;padding:2px 5px;white-space:nowrap}.choice-name{color:#645153;line-height:1.4}.choice-price{color:#9e898a;white-space:nowrap}.budget-breakdown{display:flex;gap:6px;justify-content:flex-end;flex-wrap:wrap;margin-top:5px}.budget-breakdown span{font-size:9px;color:#9a8587;background:#fff4f1;padding:3px 5px;border-radius:5px}@media(max-width:600px){.day-content{padding-left:15px;padding-right:15px}.choices{grid-template-columns:1fr}.travel-note{margin-left:48px}.choice-row{align-items:flex-start}.summary-stat{min-width:90px}}
+@media(max-width:850px){body[data-route="home"] .layout{grid-template-columns:1fr}body[data-route="home"] .form-panel{position:static}}@media(max-width:700px){.research-grid{grid-template-columns:1fr}.series-grid{grid-template-columns:1fr}.research,.creator{padding:17px}.section-title h2{font-size:17px}.page-kicker h1{font-size:25px}.toplinks{gap:3px!important}.toplinks a{padding:7px 6px;font-size:10px}.hero{padding:23px 21px;min-height:140px}}@media(max-width:460px){.topbar{align-items:flex-start;gap:9px;flex-wrap:wrap}.toplinks{order:3;width:100%;justify-content:space-between}.hero-stamp{display:none}.hero h1{font-size:32px}}
+</style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar"><div class="brand" data-go="home"><span class="brand-icon">✳</span>旅鉴 <span style="color:#9aa295;font-weight:500">/ 小红书旅行灵感 Agent</span></div><nav class="toplinks"><a href="#home" data-route-link="home">行程规划</a><a href="#research" data-route-link="research">攻略体检</a><a href="#pitfalls" data-route-link="pitfalls">避坑整理</a><a href="#creator" data-route-link="creator">系列创作</a></nav><span class="status">● 本地演示版</span></header>
+    <section class="hero" data-route-screen="home"><div><div class="eyebrow">你的下一趟旅行，从这里开始</div><h1>想去的地方，<br>慢慢变成一场好旅行。</h1><p>先告诉我目的地和旅行偏好，生成你的路线草案。收藏的攻略还可以用来做时效检查和避坑参考。</p></div><div class="hero-stamp"><div><b>✳</b>PLAN YOUR<br>OWN JOURNEY</div></div></section>
+    <div class="layout">
+      <aside class="panel form-panel" data-route-screen="home"><div class="panel-head"><div><span class="tiny-label">01 / 先说说你的计划</span><h2 style="margin:6px 0 0">设计你的旅程</h2></div><span class="step">约 1 分钟</span></div>
+        <form id="trip-form">
+          <label for="destination">想去哪里？</label><input id="destination" class="field" type="text" value="杭州" placeholder="例如：成都、京都" required />
+          <div class="row"><div><label for="days">玩几天</label><select id="days" class="field"><option value="2">2 天</option><option value="3" selected>3 天</option><option value="4">4 天</option><option value="5">5 天</option></select></div><div><label for="budget">人均预算</label><select id="budget" class="field"><option value="800">¥800</option><option value="1500" selected>¥1,500</option><option value="3000">¥3,000</option><option value="5000">¥5,000+</option></select></div></div>
+          <label>你喜欢怎样旅行？ <span style="font-weight:400;color:#929b8e">（可多选）</span></label><div class="chips" id="preferences"><button type="button" class="chip active" data-pref="美食">🍜 地道美食</button><button type="button" class="chip active" data-pref="慢游">🌿 慢节奏</button><button type="button" class="chip" data-pref="文化">🏛️ 人文历史</button><button type="button" class="chip" data-pref="自然">⛰️ 自然风光</button><button type="button" class="chip" data-pref="拍照">📷 出片打卡</button><button type="button" class="chip" data-pref="亲子">🧸 亲子友好</button></div>
+          <label for="notes">还有什么想告诉我？</label><input id="notes" class="field" type="text" placeholder="比如：不吃辣、带长辈、想看日落…" />
+          <button class="primary" type="submit">✳　为我规划行程</button><p class="privacy">无需登录 · 偏好仅保存在当前页面</p>
+        </form>
+      </aside>
+      <section class="right">
+        <section id="research" data-route-screen="research" class="research panel"><div class="page-kicker"><div><span class="tiny-label">STEP 01 / 输入你的攻略来源</span><h1>攻略体检</h1><p>先整理笔记里的时间敏感信息，结果会保留原文和来源。</p></div><button class="back-home" data-go="home">返回首页</button></div><div class="section-title"><div><h2>粘贴笔记或评论</h2><p>多篇内容用单独一行 <b>---</b> 分开；尽量保留标题、发布日期和原文措辞。</p></div><span class="section-icon">⌕</span></div><textarea id="source-notes" class="field notes-input" placeholder="粘贴笔记内容。多篇内容用单独一行 --- 分开。"></textarea><div class="research-controls"><span class="privacy-inline">只分析你粘贴的内容 · 不抓取小红书</span><button id="analyze-btn" class="primary analyze-btn">✳　整理证据与风险</button></div><div id="research-output" class="research-output"><div class="empty research-empty">分析后会在这里展示来源证据与时效风险。</div></div><div class="next-step"><span>下一步：查看来源明确的避坑线索和核对清单</span><button class="ghost" data-go="pitfalls">继续：避坑整理 →</button></div></section>
+        <section id="pitfall-panel" data-route-screen="pitfalls" class="research panel"><div class="page-kicker"><div><span class="tiny-label">STEP 02 / 保留来源，不做过度推断</span><h1>避坑整理</h1><p>把笔记和评论里的个案提醒整理成可检查事项，不把个例当作普遍结论。</p></div><button class="back-home" data-go="home">返回首页</button></div><div id="pitfall-output" class="research-output"><div class="empty research-empty">先在“攻略体检”页粘贴并分析笔记，这里会显示带来源的避坑线索。</div></div><div class="next-step"><span>下一步：结合你的偏好生成行程草案</span><button class="ghost" data-go="plan">继续：行程规划 →</button></div></section>
+        <section id="itinerary-section" data-route-screen="home"><div class="result-head"><div><span class="tiny-label">02 / 你的专属灵感路线</span><h2>行程草案</h2><p id="result-subtitle">填写左侧偏好，生成一份可调整的路线。</p></div><div class="result-actions"><button id="copy-btn" class="ghost">复制行程</button><button id="refresh-btn" class="ghost">↻ 换一版</button></div></div>
+        <div id="itinerary"><div class="panel empty">正在准备一份杭州灵感路线…</div></div>
+        </section>
+        <section id="creator" data-route-screen="creator" class="creator panel"><div class="page-kicker"><div><span class="tiny-label">STEP 04 / 把研究转成内容</span><h1>系列创作</h1><p>围绕同一次旅行拆出不同问题，减少重复的景点合集。</p></div><button class="back-home" data-go="home">返回首页</button></div><div class="section-title"><div><h2>为这次旅行规划系列笔记</h2><p>先给出内容角度草案，可继续改成你自己的语气和素材。</p></div><button id="series-btn" class="ghost">重新生成</button></div><div id="series-output" class="series-grid"><div class="empty">分析攻略后，Agent 会按你的目的地生成一组连续选题。</div></div></section>
+      </section>
+    </div>
+    <footer class="footer"><span>旅鉴 · 让每条攻略线索都有出处</span><span>DEMO 01 / LOCAL PROTOTYPE</span></footer>
+  </main><div class="toast" id="toast"></div>
+<script>
+/** @typedef {{destination:string, days:number, budget:number, preferences:string[], notes:string}} TripRequest */
+/** @typedef {{time:string,title:string,description:string,tag:string}} Activity */
+/** @typedef {{day:number,title:string,vibe:string,activities:Activity[]}} DayPlan */
+/** @typedef {{request:TripRequest, days:DayPlan[], estimate:number, explanation:string}} ItineraryData */
+
+const CITY_GUIDES = {
+  '杭州': { vibe:['湖畔慢游','茶香与巷子','山野收尾'], places:[['西湖断桥','沿湖散步，清晨人少，适合慢慢打开一天。','自然'],['楼外楼周边','尝一份杭帮菜，点菜前先确认口味和价格。','美食'],['孤山与曲院风荷','绕开主干道走小径，看看湖边的日常风景。','自然'],['河坊街','逛老街找小吃，记得留胃给下一家。','美食'],['中国茶叶博物馆','了解龙井与茶文化，找一处安静茶席歇脚。','文化'],['灵隐寺','早点出发避开人流，参观礼仪以现场说明为准。','文化'],['龙井村','在茶田间散步，挑一家明码标价的茶馆休息。','自然'],['九溪烟树','顺着溪谷轻徒步，穿舒适防滑的鞋。','自然']] },
+  '成都': { vibe:['公园醒脑','老城寻味','巷子慢逛'], places:[['人民公园','泡一杯盖碗茶，看成都人如何把日子过慢。','慢游'],['奎星楼街','在小巷里挑一家本地馆子，辣度按需调整。','美食'],['宽窄巷子','早一点来逛老街，避开午后人潮。','文化'],['武侯祠','在红墙竹影里散步，顺路了解三国故事。','文化'],['锦里','夜色渐起时逛一圈，边走边挑小吃。','美食'],['东郊记忆','由旧厂房改造的街区，适合拍照和喝咖啡。','拍照'],['玉林路','逛街区小店，找一顿不赶时间的晚餐。','美食'],['望江楼公园','竹林里走走，给行程留一点空白。','自然']] },
+  '大理': { vibe:['古城闲逛','苍山洱海','日落留白'], places:[['大理古城','从人民路慢慢逛起，看看小店和街巷生活。','慢游'],['洱海生态廊道','选一段步行或骑行，不必执着环湖打卡。','自然'],['喜洲古镇','看看白族民居，尝尝喜洲粑粑。','文化'],['才村码头','傍晚来湖边等日落，注意返程交通安排。','拍照'],['苍山感通索道','按天气和体力选择线路，出发前确认开放情况。','自然'],['床单厂艺术区','逛独立小店和展览，适合放慢脚步。','文化'],['双廊古镇','找一家临湖咖啡馆，把下午留给洱海。','慢游'],['下关本地菜馆','试试乳扇、饵丝等风味，按口味选择。','美食']] },
+  '京都': { vibe:['东山散策','茶屋与古寺','林间收心'], places:[['清水寺','尽量早到，沿二年坂慢慢走下山。','文化'],['祇园白川','沿小巷散步，拍照时留意当地居民生活。','拍照'],['锦市场','尝一点京都小吃，市场营业时间以当日为准。','美食'],['南禅寺','从水路阁到庭园，留出安静游览的时间。','文化'],['哲学之道','沿溪散步，季节不同风景各异。','自然'],['冈崎公园','逛美术馆或在湖边歇脚，给脚步一点休息。','慢游'],['岚山竹林','清晨前往更舒适，往返交通先看当日班次。','自然'],['鸭川河畔','日落时沿河走一段，找家小店吃晚餐。','慢游']] }
+};
+
+/** Local demo route data. Each city is intentionally split into distinct areas so a multi-day plan does not loop through the same stops. */
+const DAY_TEMPLATES = {
+  '杭州':[
+    {area:'西湖 · 北线',theme:'湖畔与老城',vibe:'慢游',stops:[['08:30','湖滨早餐','在湖滨附近吃早餐，步行进入西湖区域。','出发'],['09:30','断桥残雪 → 白堤','沿白堤向孤山慢走，上午光线和人流更友好。','景点'],['12:30','孤山 / 北山街午餐','在孤山一带解决午餐，午后不用折返。','餐食'],['15:00','浙江省博物馆孤山馆区','把室内参观安排在午后，留意预约和开放日。','人文'],['18:30','北山街夜景','从宝石山脚或北山街收尾，晚餐放在湖滨。','夜游']],food:[['平价','北山街面馆 / 小吃','¥30–70 / 人'],['舒适','湖滨杭帮菜','¥100–180 / 人'],['品质','西湖景观餐厅','¥300+ / 人']],stay:[['经济','武林广场 / 凤起路连锁酒店','¥300–500 / 晚'],['舒适','湖滨商圈设计酒店','¥700–1,200 / 晚'],['品质','西湖东岸度假酒店','¥1,500+ / 晚']]},
+    {area:'灵隐 · 龙井',theme:'寺院与茶山',vibe:'自然',stops:[['08:00','灵隐寺早到','预留安检和排队时间；开放与预约以当天公告为准。','景点'],['11:30','灵隐周边素斋','游览结束后就近用餐，下午再进茶山。','餐食'],['13:30','龙井村茶园步道','选择短线散步，避免把行程排得太满。','自然'],['16:00','中国茶叶博物馆','从茶园步行或短途打车前往，提前看闭馆时间。','人文'],['18:30','满觉陇晚餐','在满觉陇一带吃晚饭后回酒店。','夜游']],food:[['平价','灵隐路简餐 / 素食','¥40–80 / 人'],['舒适','满觉陇庭院菜','¥120–220 / 人'],['品质','西湖山景私房菜','¥350+ / 人']],stay:[['经济','黄龙 / 文三路连锁酒店','¥280–450 / 晚'],['舒适','灵隐 / 西溪精品民宿','¥650–1,100 / 晚'],['品质','西湖西线度假酒店','¥1,400+ / 晚']]},
+    {area:'河坊街 · 南宋御街',theme:'市井与宋韵',vibe:'文化',stops:[['09:00','南宋御街早餐','从老街北段开始，边走边看沿街建筑。','出发'],['10:00','胡雪岩故居','安排上午参观，重点看江南宅院细节。','人文'],['12:30','高银街午餐','选一家杭帮菜或小吃店，错开正午高峰。','餐食'],['14:30','河坊街 / 鼓楼','逛传统店铺与小巷，挑一段做拍照记录。','街区'],['18:00','城隍阁日落','登高看老城和西湖方向，注意闭园时间。','夜游']],food:[['平价','高银街小吃 / 面馆','¥35–80 / 人'],['舒适','河坊街杭帮菜','¥100–180 / 人'],['品质','南宋御街创意江南菜','¥280+ / 人']],stay:[['经济','城站 / 河坊街连锁酒店','¥260–450 / 晚'],['舒适','吴山广场精品酒店','¥600–1,000 / 晚'],['品质','西湖南线设计酒店','¥1,200+ / 晚']]},
+    {area:'西溪 · 运河',theme:'湿地与水岸',vibe:'自在探索',stops:[['09:00','西溪湿地慢游','选一段步道或摇橹船，提前确认游船安排。','自然'],['12:30','西溪周边午餐','在湿地出口附近就餐，下午转去运河。','餐食'],['14:30','小河直街','沿运河边老街散步，看看手作小店。','街区'],['16:30','拱宸桥 / 运河博物馆','在水岸收尾，室内馆可作为天气备选。','人文'],['19:00','运河夜餐','留在桥西历史街区吃晚餐。','夜游']],food:[['平价','桥西历史街区简餐','¥40–90 / 人'],['舒适','运河边江浙菜','¥120–200 / 人'],['品质','西溪度假区餐厅','¥300+ / 人']],stay:[['经济','蒋村 / 城西连锁酒店','¥260–450 / 晚'],['舒适','西溪湿地周边酒店','¥650–1,100 / 晚'],['品质','西溪度假村酒店','¥1,500+ / 晚']]},
+    {area:'九溪 · 钱江新城',theme:'山水与城市夜景',vibe:'拍照',stops:[['08:30','九溪烟树轻徒步','穿防滑鞋，雨天改为室内场馆。','自然'],['12:00','虎跑路午餐','在九溪出口或虎跑路一带用餐。','餐食'],['14:30','六和塔 / 钱塘江边','看江景后前往钱江新城，控制步行量。','景点'],['17:30','城市阳台日落','提前到江边等天色变化。','拍照'],['19:00','来福士 / 万象城晚餐','在商圈解决晚餐，方便返程。','夜游']],food:[['平价','钱江新城商场简餐','¥45–90 / 人'],['舒适','江景餐厅','¥130–220 / 人'],['品质','高层景观餐厅','¥350+ / 人']],stay:[['经济','钱江新城地铁沿线连锁','¥300–500 / 晚'],['舒适','市民中心商圈酒店','¥700–1,200 / 晚'],['品质','钱塘江景酒店','¥1,600+ / 晚']]}
+  ],
+  '成都':[
+    {area:'人民公园 · 宽窄巷子',theme:'茶馆与老城',vibe:'慢游',stops:[['08:30','人民公园喝盖碗茶','上午坐一会儿，感受本地生活节奏。','出发'],['10:30','宽窄巷子','从窄巷子往宽巷子走，避开最拥挤时段。','街区'],['12:30','奎星楼街午餐','根据吃辣程度点菜，预留排队时间。','餐食'],['15:00','四川博物院','用室内参观避开午后高温或雨天。','人文'],['18:30','宽窄附近晚餐','回到同一区域吃晚饭，减少往返。','夜游']],food:[['平价','奎星楼街小吃','¥40–80 / 人'],['舒适','宽窄附近川菜','¥110–190 / 人'],['品质','创意川菜 / 私房菜','¥300+ / 人']],stay:[['经济','天府广场地铁沿线连锁','¥260–450 / 晚'],['舒适','宽窄巷子周边酒店','¥600–1,000 / 晚'],['品质','人民公园精品酒店','¥1,200+ / 晚']]},
+    {area:'武侯祠 · 玉林',theme:'三国与市井',vibe:'文化',stops:[['09:00','武侯祠','上午先看主展区，再慢慢走红墙竹影。','人文'],['12:00','锦里附近午餐','避开景区核心摊位，选择邻街正餐。','餐食'],['14:30','锦里 / 望江楼','按体力二选一或短途打车串联。','景点'],['17:00','玉林路散步','逛社区咖啡和独立小店。','街区'],['19:00','玉林晚餐','安排一顿本地川菜，辣度按需选择。','夜游']],food:[['平价','玉林社区小馆','¥45–85 / 人'],['舒适','玉林川菜馆','¥110–200 / 人'],['品质','武侯区融合川菜','¥320+ / 人']],stay:[['经济','高升桥地铁沿线连锁','¥250–430 / 晚'],['舒适','玉林 / 桐梓林酒店','¥650–1,100 / 晚'],['品质','城南精品酒店','¥1,300+ / 晚']]},
+    {area:'熊猫基地 · 东郊记忆',theme:'萌宠与工业风',vibe:'拍照',stops:[['07:30','成都大熊猫繁育研究基地','尽量早到，上午熊猫更活跃；提前核对预约。','景点'],['12:00','建设路午餐','从熊猫基地转向建设路，安排街头小吃。','餐食'],['14:30','东郊记忆','在旧厂房街区拍照、喝咖啡。','拍照'],['17:00','杉板桥公园','给下午留一段轻松散步。','自然'],['19:00','建设路 / SM商圈晚餐','根据预算选择商圈餐厅。','夜游']],food:[['平价','建设路小吃','¥35–75 / 人'],['舒适','SM商圈川菜','¥100–180 / 人'],['品质','东郊创意餐厅','¥280+ / 人']],stay:[['经济','建设路地铁沿线连锁','¥260–440 / 晚'],['舒适','东郊记忆周边酒店','¥600–950 / 晚'],['品质','成华区设计酒店','¥1,100+ / 晚']]},
+    {area:'杜甫草堂 · 浣花溪',theme:'诗意与公园',vibe:'自然',stops:[['09:00','杜甫草堂','按展区顺序参观，预留安静阅读时间。','人文'],['12:00','浣花溪周边午餐','就近用餐，午后在公园慢走。','餐食'],['14:00','浣花溪公园','沿水岸散步，适合放慢节奏。','自然'],['16:30','青羊宫','傍晚前参观，感受另一段城市历史。','文化'],['18:30','同仁路晚餐','在青羊区解决晚餐后返程。','夜游']],food:[['平价','青羊区面馆 / 小馆','¥35–75 / 人'],['舒适','浣花溪周边川菜','¥110–190 / 人'],['品质','草堂附近庭院餐厅','¥300+ / 人']],stay:[['经济','青羊宫地铁沿线连锁','¥260–440 / 晚'],['舒适','草堂 / 宽窄区域酒店','¥600–1,000 / 晚'],['品质','青羊区庭院酒店','¥1,200+ / 晚']]},
+    {area:'春熙路 · 安顺廊桥',theme:'城市夜色',vibe:'自在探索',stops:[['10:00','太古里 / 大慈寺','上午逛大慈寺，再转入商圈。','街区'],['12:30','春熙路午餐','选商场或小街区餐厅，避开高峰。','餐食'],['15:00','IFS / 望平街','拍城市街景，咖啡时间留给望平街。','拍照'],['17:30','安顺廊桥','傍晚看府南河两岸亮灯。','夜游'],['19:00','九眼桥晚餐','按是否想继续夜游决定返程时间。','夜游']],food:[['平价','春熙路商场简餐','¥45–90 / 人'],['舒适','太古里 / 望平街餐厅','¥130–220 / 人'],['品质','河景融合菜','¥350+ / 人']],stay:[['经济','春熙路地铁沿线连锁','¥300–500 / 晚'],['舒适','太古里商圈酒店','¥750–1,300 / 晚'],['品质','市中心高层酒店','¥1,600+ / 晚']]}
+  ]
+};
+
+/** Stores and validates the user's trip preferences.
+ * @class TripRequest
+ * @property {string} destination - Destination name entered by the traveler.
+ * @property {number} days - Requested trip length in days (2–5).
+ * @property {number} budget - Approximate per-person budget in CNY.
+ * @property {string[]} preferences - Selected travel styles.
+ * @property {string} notes - Optional constraints or personal notes.
+ */
+class TripRequest {
+  /** @param {TripRequest} values - Raw form values to normalize. */
+  constructor(values) { this.destination=values.destination.trim(); this.days=Number(values.days); this.budget=Number(values.budget); this.preferences=[...values.preferences]; this.notes=values.notes.trim(); }
+  /** @returns {boolean} True when the destination and supported trip length are valid. */
+  isValid() { return this.destination.length>0 && Number.isInteger(this.days) && this.days>=2 && this.days<=5; }
+}
+
+/** Holds one complete suggested trip.
+ * @class Itinerary
+ * @property {TripRequest} request - The preferences used to create this plan.
+ * @property {DayPlan[]} days - Ordered day-by-day suggestions.
+ * @property {number} estimate - Rough per-person activity and food estimate in CNY.
+ * @property {string} explanation - Short explanation of the planning choices.
+ */
+class Itinerary {
+  /** @param {TripRequest} request @param {DayPlan[]} days @param {number} estimate @param {string} explanation */
+  constructor(request,days,estimate,explanation) { this.request=request; this.days=days; this.estimate=estimate; this.explanation=explanation; }
+}
+
+/** Generates a transparent, local demo itinerary from guide data and preferences.
+ * @class TravelAgent
+ * @property {Record<string, {vibe:string[],places:[string,string,string][]}>} guides - Curated sample data keyed by city.
+ */
+class TravelAgent {
+  /** @param {Record<string, {vibe:string[],places:[string,string,string][]}>} guides - City guide catalogue. */
+  constructor(guides) { this.guides=guides; }
+  /** Choose places, arrange them into days, and estimate a rough budget.
+   * @param {TripRequest} request - Validated user preferences.
+   * @param {number} variation - Rotation offset used by “换一版”.
+   * @returns {Itinerary} A complete itinerary draft.
+   */
+  plan(request,variation=0) {
+    const templates=DAY_TEMPLATES[request.destination] || this.makeFallbackDays(request.destination);
+    const start=variation%templates.length;
+    const selected=[];
+    for(let i=0;i<request.days;i++) selected.push(templates[(start+i)%templates.length]);
+    const days=selected.map((template,index)=>({day:index+1,title:template.theme,area:template.area,vibe:request.preferences[index%Math.max(1,request.preferences.length)] || template.vibe,activities:template.stops.map(stop=>({time:stop[0],title:stop[1],description:stop[2],tag:stop[3]})),food:template.food,stay:template.stay}));
+    const basePerDay=request.budget>=3000?680:request.budget>=1500?420:260;
+    const estimate=Math.min(request.budget,basePerDay*request.days);
+    const preferenceText=request.preferences.length?request.preferences.join('、'):'轻松探索';
+    const noteText=request.notes?`已记录你的备注“${request.notes}”，演示版暂不会据此自动核验营业时间或交通。`:'每天按相邻区域编排，减少重复景点和跨城往返。';
+    return new Itinerary(request,days,estimate,`优先安排${preferenceText}相关体验。每一天使用不同区域。${noteText}`);
+  }
+  /** Build generic demo places when a city is absent from the sample catalogue.
+   * @param {string} city - Destination to label on the generated suggestions.
+   * @returns {{vibe:string[],places:[string,string,string][]}} Generic demo guide data.
+   */
+  makeFallbackGuide(city) { return {vibe:['城市初印象','街巷慢慢逛','留一点自由'],places:[[`${city}城市公园`,'找一段绿荫步道，作为抵达后的轻松开场。','自然'],[`${city}本地美食街`,'选人气适中的店，按自己的口味点一餐。','美食'],[`${city}历史街区`,'从街巷建筑和小店认识这座城市。','文化'],[`${city}河岸 / 观景点`,'傍晚散步看城市天色变化。','拍照'],[`${city}社区咖啡馆`,'留一段空白时间休息，按当天状态调整。','慢游'],[`${city}城市博物馆`,'了解当地历史，出发前确认开放时间。','文化']]}; }
+  /** Create five non-repeating area themes for destinations without local demo data.
+   * @param {string} city - Destination to label.
+   * @returns {Array<object>} Area-based day templates.
+   */
+  makeFallbackDays(city) {const areas=[['老城核心','街巷与地标'],['博物馆区','人文与室内'],['城市公园','自然与慢游'],['河岸 / 湖畔','日落与夜景'],['社区街区','咖啡与本地生活']];return areas.map(([area,theme],index)=>({area,theme,vibe:['文化','慢游','自然','拍照','自在探索'][index],stops:[['08:30',`${city}${area}早餐`,'选择离第一站步行可达的早餐店。','出发'],['09:30',`${city}${area}代表景点`,'上午参观当地核心点位，出发前核对开放信息。','景点'],['12:30',`${city}${area}午餐`,'在同一区域安排午餐，避免跨区折返。','餐食'],['15:00',`${city}${area}第二站`,'根据体力选择展馆、街区或公园。','探索'],['18:30',`${city}${area}晚间散步`,'用一段轻松散步收尾，再回住宿区域。','夜游']],food:[['平价',`${area}简餐 / 小馆`,'¥40–90 / 人'],['舒适',`${area}本地菜`,'¥120–220 / 人'],['品质',`${area}特色餐厅`,'¥320+ / 人']],stay:[['经济',`${city}地铁沿线连锁酒店`,'¥280–500 / 晚'],['舒适',`${city}核心商圈酒店`,'¥650–1,200 / 晚'],['品质',`${city}景观 / 精品酒店`,'¥1,500+ / 晚']]})); }
+}
+
+/** Read the current form into a typed request object.
+ * @returns {TripRequest} Normalized values from all form controls.
+ */
+function readRequest() { return new TripRequest({destination:document.querySelector('#destination').value,days:document.querySelector('#days').value,budget:document.querySelector('#budget').value,preferences:[...document.querySelectorAll('.chip.active')].map(button=>button.dataset.pref),notes:document.querySelector('#notes').value}); }
+/** Escape user or guide text before inserting it into HTML.
+ * @param {string} text - Plain text to display.
+ * @returns {string} HTML-safe text.
+ */
+function escapeHtml(text) { return String(text).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char])); }
+/** Render itinerary cards into the page.
+ * @param {Itinerary} itinerary - The latest generated plan.
+ * @returns {void} Updates the itinerary and subtitle DOM nodes.
+ */
+function renderItinerary(itinerary) {
+  const {request,days,estimate,explanation}=itinerary;
+  document.querySelector('#result-subtitle').textContent=`根据你的偏好整理 · ${request.preferences.length?request.preferences.join(' / '):'自在探索'}`;
+  const renderChoices=(title,items,icon)=>`<div class="choice-box"><h4>${icon} ${title}</h4>${items.map(item=>`<div class="choice-row"><span class="choice-level">${escapeHtml(item[0])}</span><span class="choice-name">${escapeHtml(item[1])}</span><span class="choice-price">${escapeHtml(item[2])}</span></div>`).join('')}</div>`;
+  const dayHtml=days.map(day=>`<article class="panel day"><header class="day-top"><div class="day-number">DAY ${String(day.day).padStart(2,'0')}</div><div><div class="day-name">${escapeHtml(day.title)}</div><div class="day-date">${escapeHtml(request.destination)} · 第 ${day.day} 天 <span class="area-line">· ${escapeHtml(day.area)}</span></div></div><span class="day-vibe">${escapeHtml(day.vibe)}</span></header><div class="day-content"><div class="timeline-label">按时段安排 · 尽量不跨区折返</div><div class="activities">${day.activities.map((activity,index)=>`${index===1||index===3?'<div class="travel-note">↳ 建议同区域步行或短途交通衔接</div>':''}<div class="activity"><span class="time">${escapeHtml(activity.time)}</span><div><div class="activity-title">${escapeHtml(activity.title)}</div><div class="activity-desc">${escapeHtml(activity.description)}</div></div><span class="tag">${escapeHtml(activity.tag)}</span></div>`).join('')}</div><div class="choices">${renderChoices('附近餐食 · 三档预算',day.food,'🍜')}${renderChoices('住宿区域 · 三档预算',day.stay,'🛏️')}</div></div></article>`).join('');
+  const perDay=Math.round(estimate/request.days);
+  document.querySelector('#itinerary').innerHTML=`<div class="panel summary"><div><div class="destination">${escapeHtml(request.destination)} <span style="font-size:12px;font-weight:500;color:#8b7d7d">${request.days} 天分区路线</span></div><div class="summary-detail">${request.preferences.length?request.preferences.map(escapeHtml).join(' · '):'自在探索'}${request.notes?' · 已记下你的备注':''}</div></div><div class="summary-stat"><strong>¥${estimate.toLocaleString('zh-CN')}</strong>体验与餐食预估 / 人<div class="budget-breakdown"><span>约 ¥${perDay}/天</span><span>住宿另选</span></div></div></div><div class="day-list">${dayHtml}</div><div class="agent-note"><b>✳ Agent 的规划说明</b><br>${escapeHtml(explanation)} 餐厅、酒店和价格为本地演示用的区域与价位参考，出发前请根据日期、入住人数和官方渠道确认。</div>`;
+}
+
+/** @typedef {{source:string,published:string|null,category:string,quote:string,risk:'高'|'中'|'低',reason:string}} Finding */
+/** @typedef {{title:string,text:string,format:string}} SeriesIdea */
+let latestFindings=[];
+let latestPitfalls=[];
+/** Split pasted notes into individual source blocks separated by a line containing ---.
+ * @param {string} text - All pasted note and comment text.
+ * @returns {{name:string,text:string,published:string|null}[]} Source blocks with title and publication date.
+ */
+function parseSources(text) { return text.split(/^\s*---\s*$/m).map((block,index)=>{const lines=block.split(/\r?\n/).map(line=>line.trim()).filter(Boolean);const title=lines.find(line=>/^【.*】$/.test(line));const dateMatch=block.match(/(20\d{2})[年./-](\d{1,2})[月./-](\d{1,2})日?/);const published=dateMatch?`${dateMatch[1]}-${String(dateMatch[2]).padStart(2,'0')}-${String(dateMatch[3]).padStart(2,'0')}`:null;return {name:title?title.replace(/[【】]/g,''): `来源 ${index+1}`,text:block,published};}).filter(source=>source.text.length>0); }
+/** Identify time-sensitive claims and evidence of potential pitfalls without treating them as verified facts.
+ * @param {{name:string,text:string,published:string|null}[]} sources - User supplied source blocks.
+ * @returns {{findings:Finding[],pitfalls:{source:string,quote:string}[],checklist:string[]} Extracted evidence, risk classifications, and manual checks.
+ */
+function inspectSources(sources) {
+  const findings=[];const pitfalls=[];const checklist=new Set();
+  const rules=[{category:'营业时间',pattern:/营业时间|开放时间|几点开门|几点关门|开放至|闭馆/iu,check:'核对景点当天的开放 / 闭馆时间及节假日安排'},{category:'票价费用',pattern:/门票|票价|收费|价格|元\/人|人均|租车|计费/iu,check:'核对最新票价、预约费用、租赁计费规则和退改条件'},{category:'预约入场',pattern:/预约|预订|实名|限流|门票预约/iu,check:'确认是否需要预约、预约入口、放票时间及证件要求'},{category:'交通路线',pattern:/公交|地铁|打车|步行|自驾|停车|班车|轮渡|交通/iu,check:'核对路线、班次、末班车和步行距离'},{category:'排队拥挤',pattern:/排队|排了|人多|拥挤|高峰|避开/iu,check:'确认目标日期的人流情况，并预留排队或替代方案'}];
+  for(const source of sources) {
+    const sentences=source.text.split(/(?<=[。！？.!?；;])\s*|\r?\n/).map(s=>s.trim()).filter(Boolean);
+    const ageDays=source.published?(Date.now()-new Date(`${source.published}T00:00:00`).getTime())/86400000:null;
+    for(const sentence of sentences) {
+      for(const rule of rules.filter(item=>item.pattern.test(sentence))) {let risk='中';let reason='涉及可能变化的信息，建议出发前手动核对。';if(ageDays===null)reason='来源未识别到发布日期，无法判断信息新旧；请手动核对。';else if(ageDays>180){risk='高';reason=`来源约 ${Math.floor(ageDays/30)} 个月前发布，时效性较高，建议优先核验。`;}else if(ageDays<0){risk='中';reason='识别到的发布日期晚于当前日期，请检查日期是否正确。';}else if(ageDays<30){risk='低';reason='来源日期较近，但营业与费用仍可能变化，建议临行确认。';}else if(ageDays>90){risk='高';reason='来源已超过 3 个月，建议优先核验。';}findings.push({source:source.name,published:source.published,category:rule.category,quote:sentence,risk,reason});checklist.add(rule.check);}
+      if(/排队|排了|踩雷|避雷|不值|宰客|绕路|注意|坑|收费|涨价|关闭|预约/iu.test(sentence))pitfalls.push({source:source.name,quote:sentence});
+    }
+  }
+  if(!findings.length)checklist.add('补充笔记发布日期、营业时间、票价、预约和交通等具体信息');
+  checklist.add('出发当天再次查看官方公告、天气和交通情况');
+  return {findings,pitfalls:[...new Map(pitfalls.map(item=>[`${item.source}|${item.quote}`,item])).values()],checklist:[...checklist]};
+}
+/** Render source-linked findings, potential pitfalls, and a traveler-editable checklist.
+ * @param {{findings:Finding[],pitfalls:{source:string,quote:string}[],checklist:string[]}} report - Analysis report from inspectSources.
+ * @returns {void} Updates the research output region.
+ */
+function renderResearch(report) {
+  const high=report.findings.filter(item=>item.risk==='高').length;const medium=report.findings.filter(item=>item.risk==='中').length;
+  const findingCards=report.findings.length?report.findings.map(item=>`<div class="claim"><div class="claim-text">“${escapeHtml(item.quote)}”</div><div class="claim-meta"><span class="source-name">${escapeHtml(item.source)}</span><span>${item.published?`发布于 ${escapeHtml(item.published)}`:'未识别到发布日期'}</span><span>${escapeHtml(item.category)}</span><span class="risk-pill ${item.risk==='高'?'high':item.risk==='低'?'low':''}">${item.risk}风险</span></div><div class="claim-meta">${escapeHtml(item.reason)}</div></div>`).join(''):'<p class="claim-text">暂未从文本中识别到营业时间、票价、预约或交通等明确线索。可以补充原文或手动核对。</p>';
+  const pitfallCards=report.pitfalls.length?report.pitfalls.map(item=>`<div class="pitfall-item"><span class="source-name">${escapeHtml(item.source)}</span><div class="pitfall-quote">“${escapeHtml(item.quote)}”</div></div>`).join(''):'<p class="claim-text">暂未识别出明显避坑线索。这里不会把单条体验推断成普遍结论。</p>';
+  const checks=report.checklist.map((item,index)=>`<label class="check-row"><input type="checkbox" data-check="${index}"><span>${escapeHtml(item)}</span></label>`).join('');
+  document.querySelector('#research-output').innerHTML=`<div class="research-summary"><span class="metric"><strong>${report.findings.length}</strong>条可核验信息</span><span class="metric risk-high"><strong>${high}</strong>条高风险</span><span class="metric risk-medium"><strong>${medium}</strong>条待确认</span><span class="metric"><strong>${report.pitfalls.length}</strong>条避坑线索</span></div><article class="insight-card"><h3>信息时效与原文依据</h3>${findingCards}<div class="disclaimer">风险只表示“值得优先核验”，不是对原文真假的判定。分析依据仅来自你粘贴的文本，未访问小红书或实时网页。</div></article>`;
+  document.querySelector('#pitfall-output').innerHTML=`<div class="research-grid"><article class="insight-card"><h3>避坑线索 <span style="font-weight:400;color:#899286">· 保留来源，不外推</span></h3>${pitfallCards}<div class="disclaimer">这些是用户提供内容中的个案线索，不代表普遍情况；请结合出行日期和官方信息自行判断。</div></article><article class="insight-card"><h3>出发前核对清单</h3><div class="check-list">${checks}</div></article></div>`;
+  document.querySelector('.check-list').addEventListener('change',event=>{const label=event.target.closest('.check-row');if(label)label.classList.toggle('done',event.target.checked);});
+}
+/** Analyze pasted source notes and update the research and content sections.
+ * @returns {void} Stores extracted findings and renders a report.
+ */
+function analyzeNotes(showFeedback=true) {const sources=parseSources(document.querySelector('#source-notes').value);if(!sources.length){if(showFeedback)showToast('请先粘贴一篇笔记或评论');return;}const report=inspectSources(sources);latestFindings=report.findings;latestPitfalls=report.pitfalls;renderResearch(report);renderSeries();if(showFeedback)showToast(`已整理 ${sources.length} 个来源，请按清单手动核验`);}
+/** Suggest a short content series based on the destination and available evidence.
+ * @returns {SeriesIdea[]} A sequence of differentiated creator angles.
+ */
+function makeSeries() {const city=readRequest().destination||'这次旅行';const verified=latestFindings.length;return [{title:`出发前先查这 ${Math.min(verified||3,5)} 件事`,text:`围绕${city}的开放时间、费用、预约与交通，展示哪些信息需要重新确认。`,format:'实用清单 · 收藏向'},{title:`${city}攻略里的避坑提醒，有哪些原文依据？`,text:`挑 2–3 条带来源的评论或笔记，区分个人经历与可复用提醒。`,format:'证据拆解 · 讨论向'},{title:`按我的节奏走：${city}${readRequest().days}天路线复盘`,text:`记录路线取舍、预算感受和临时调整，补上出发前未能确认的信息。`,format:'旅行复盘 · 连载收尾'}];}
+/** Render the series content angles in the creator area.
+ * @returns {void} Updates the content series region.
+ */
+function renderSeries() {const ideas=makeSeries();document.querySelector('#series-output').innerHTML=ideas.map((idea,index)=>`<article class="series-card"><span class="series-num">PART 0${index+1} / SERIES IDEA</span><h3>${escapeHtml(idea.title)}</h3><p>${escapeHtml(idea.text)}</p><span class="format">${escapeHtml(idea.format)}</span></article>`).join('');}
+
+/** Switch to one named application screen without discarding the current page state.
+ * @param {string} route - One of home, research, pitfalls, plan, or creator.
+ * @returns {void} Updates the active route and top navigation state.
+ */
+function navigateTo(route,updateHistory=true) {const normalized=route==='plan'?'home':route;const allowed=['home','research','pitfalls','creator'];const next=allowed.includes(normalized)?normalized:'home';document.body.dataset.route=next;if(updateHistory)history.pushState({route:next},'',`#${next}`);else if(location.hash!==`#${next}`)history.replaceState({route:next},'',`#${next}`);document.querySelectorAll('[data-route-link]').forEach(link=>link.classList.toggle('active',link.dataset.routeLink===next));window.scrollTo({top:0,behavior:'smooth'});}
+
+const agent=new TravelAgent(CITY_GUIDES);
+let latestItinerary=null;
+let variation=0;
+/** Generate a fresh itinerary using the current form state.
+ * @returns {void} Updates latestItinerary and the visible plan.
+ */
+function generatePlan() { const request=readRequest(); if(!request.isValid()){showToast('请填写有效的目的地与天数');return;} latestItinerary=agent.plan(request,variation); renderItinerary(latestItinerary); }
+/** Display a short transient confirmation message.
+ * @param {string} message - Feedback text.
+ * @returns {void} Shows and then hides the toast.
+ */
+function showToast(message) { const toast=document.querySelector('#toast');toast.textContent=message;toast.classList.add('show');window.setTimeout(()=>toast.classList.remove('show'),2100); }
+document.querySelector('#trip-form').addEventListener('submit',event=>{event.preventDefault();variation=0;generatePlan();});
+document.querySelector('#preferences').addEventListener('click',event=>{const chip=event.target.closest('.chip');if(chip)chip.classList.toggle('active');});
+document.querySelectorAll('.suggestion').forEach(button=>button.addEventListener('click',()=>{document.querySelector('#destination').value=button.dataset.city;generatePlan();}));
+document.querySelector('#refresh-btn').addEventListener('click',()=>{if(!latestItinerary){generatePlan();return;}variation++;generatePlan();showToast('已为你换一组路线灵感');});
+document.querySelector('#copy-btn').addEventListener('click',async()=>{if(!latestItinerary){showToast('先生成一份行程');return;}const text=latestItinerary.days.map(day=>`Day ${day.day}｜${day.title}（${day.area}）\n${day.activities.map(item=>`${item.time} ${item.title}：${item.description}`).join('\n')}\n附近餐食：${day.food.map(item=>`${item[0]} ${item[1]} ${item[2]}`).join('；')}\n住宿选择：${day.stay.map(item=>`${item[0]} ${item[1]} ${item[2]}`).join('；')}`).join('\n\n');try{await navigator.clipboard.writeText(`${latestItinerary.request.destination} ${latestItinerary.request.days}日游\n\n${text}\n\n${latestItinerary.explanation}`);showToast('行程已复制到剪贴板');}catch{showToast('浏览器暂不支持复制，请手动选择行程文字');}});
+document.querySelector('#source-notes').value=`【杭州周末慢游】
+发布于：2025-05-12
+灵隐寺早上7点半开门，门票30元，节假日要提前预约。公交车到灵隐站，下车步行十分钟。
+
+---
+
+【评论：周末去杭州】
+我们上周末去排队排了一个多小时，建议先预约；西湖边租自行车要看清计费规则。`;
+document.querySelector('#analyze-btn').addEventListener('click',analyzeNotes);
+document.querySelector('#series-btn').addEventListener('click',()=>{renderSeries();showToast('系列选题已更新');});
+document.querySelectorAll('[data-route-link]').forEach(link=>link.addEventListener('click',event=>{event.preventDefault();navigateTo(link.dataset.routeLink);}));
+document.querySelectorAll('[data-go]').forEach(button=>button.addEventListener('click',()=>navigateTo(button.dataset.go)));
+document.querySelectorAll('[data-go]').forEach(button=>button.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();navigateTo(button.dataset.go);}}));
+window.addEventListener('popstate',()=>navigateTo(location.hash.slice(1)||'home',false));
+generatePlan();
+analyzeNotes(false);
+navigateTo(location.hash.slice(1)||'home',false);
+</script>
+</body>
+</html>
+
